@@ -1,6 +1,7 @@
 package practice08;
 
 import java.lang.reflect.Field;
+import java.util.Objects;
 
 public class Person {
 
@@ -50,21 +51,15 @@ public class Person {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        Field[] fields = obj.getClass().getDeclaredFields();
-        for(Field f:fields){
-            f.setAccessible(true);
-            try {
-                Object object = f.get(obj);
-                Object thisObj = f.get((Object) this);
-                if(object==thisObj){
-                    return true;
-                }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
+    public boolean equals(Object o) {
+        if (this == o) {return true;}
+        if (!(o instanceof Person)) {return false;}
+        Person person = (Person) o;
+        return getId() == person.getId();
+    }
 
-        }
-        return false;
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }
