@@ -28,10 +28,6 @@ public class Klass {
         return leader;
     }
 
-    public void setLeader(Student leader) {
-        this.leader = leader;
-    }
-
     public void assignLeader(Student leader){
         if(leader.getKlass().equals(this)){
             this.leader = leader;

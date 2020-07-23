@@ -7,42 +7,42 @@ public class Teacher extends Person {
 
     private List<Klass> classes;
 
-    public Teacher(int id,String name, int age, List<Klass> classes) {
-        super(id,name, age);
+    public Teacher(int id, String name, int age, List<Klass> classes) {
+        super(id, name, age);
         this.classes = classes;
     }
 
-    public Teacher(int id,String name,int age){
-        super(name,age);
-        this.classes=new LinkedList<>();
+    public Teacher(int id, String name, int age) {
+        super(name, age);
+        this.classes = new LinkedList<>();
     }
 
     @Override
     public String introduce() {
-        if(this.classes.size()==0){
-           return super.introduce()+" I am a Teacher. I teach No Class.";
+        if (this.classes.size() == 0) {
+            return super.introduce() + " I am a Teacher. I teach No Class.";
         } else {
-            String result = super.introduce()+" I am a Teacher. I teach Class";
-            for(Klass klass:this.classes){
-                result+=" "+klass.getNumber()+",";
+            String result = super.introduce() + " I am a Teacher. I teach Class";
+            for (Klass klass : this.classes) {
+                result += " " + klass.getNumber() + ",";
             }
-            return result.substring(0,result.length()-1)+".";
+            return result.substring(0, result.length() - 1) + ".";
         }
 
     }
 
-    public String introduceWith(Student student){
-        for(Klass klass:this.classes){
-            if(klass.getNumber()==student.getKlass().getNumber()){
-                return super.introduce()+" I am a Teacher. I teach "+student.getName()+".";
+    public String introduceWith(Student student) {
+        for (Klass klass : this.classes) {
+            if (klass.getNumber() == student.getKlass().getNumber()) {
+                return super.introduce() + " I am a Teacher. I teach " + student.getName() + ".";
             }
         }
-        return super.introduce()+" I am a Teacher. I don't teach "+student.getName()+".";
+        return super.introduce() + " I am a Teacher. I don't teach " + student.getName() + ".";
     }
 
-    public boolean isTeaching(Student student){
-        for(Klass klass:this.classes){
-            if(klass.isIn(student)){
+    public boolean isTeaching(Student student) {
+        for (Klass klass : this.classes) {
+            if (klass.isIn(student)) {
                 return true;
             }
         }
