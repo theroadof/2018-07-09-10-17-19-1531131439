@@ -42,15 +42,15 @@ public class Person {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Person)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         Person person = (Person) o;
-        return getId() == person.getId();
+        return id == person.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(id);
     }
 }

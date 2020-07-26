@@ -2,6 +2,7 @@ package practice11;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Teacher extends Person implements joinListener {
 
@@ -31,7 +32,6 @@ public class Teacher extends Person implements joinListener {
             }
             return result.substring(0, result.length() - 1) + ".";
         }
-
     }
 
     public String introduceWith(Student student) {
@@ -59,7 +59,9 @@ public class Teacher extends Person implements joinListener {
     @Override
     public void update(Student student) {
         if (student.getKlass().getLeader() != null) {
-            System.out.print("I am " + this.getName() + ". I know " + student.getName() + " become Leader of " + student.getKlass().getDisplayName() + ".\n");
+            if (student.getKlass().getLeader().getId() == student.getId()) {
+                System.out.print("I am " + this.getName() + ". I know " + student.getName() + " become Leader of " + student.getKlass().getDisplayName() + ".\n");
+            }
         } else {
             System.out.print("I am " + this.getName() + ". I know " + student.getName() + " has joined " + student.getKlass().getDisplayName() + ".\n");
         }
