@@ -7,15 +7,11 @@ public class Klass {
         this.number = String.valueOf(number);
     }
 
-    public String getDisplayName(){
-        return "Class 2";
+    public String getDisplayName() {
+        return "Class " + this.number;
     }
 
     public int getNumber() {
         return Integer.parseInt(this.number);
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 }

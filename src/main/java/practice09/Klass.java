@@ -8,35 +8,27 @@ public class Klass {
         this.number = String.valueOf(number);
     }
 
-    public String getDisplayName(){
-        return "Class 2";
+    public String getDisplayName() {
+        return "Class " + this.number;
     }
 
     public Student getLeader() {
         return leader;
     }
 
-    public void setLeader(Student leader) {
-        this.leader = leader;
-    }
-
-    public void assignLeader(Student leader){
-        if(leader.getKlass().equals(this)){
+    public void assignLeader(Student leader) {
+        if (leader.getKlass().equals(this)) {
             this.leader = leader;
-        }else {
+        } else {
             System.out.print("It is not one of us.\n");
         }
     }
 
-    public void appendMember(Student student){
+    public void appendMember(Student student) {
         student.setKlass(this);
     }
 
     public int getNumber() {
         return Integer.parseInt(this.number);
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 }
